@@ -5,9 +5,28 @@ import '../styles/App.css';
 function App() {
   //State
   const [data, setData] = useState(adalabers.results);
+  const [newAdalaber, setNewAdalaber] = useState({
+    name: '',
+    counselor: '',
+    speciality: '',
+  });
 
   //Events
-
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  };
+  const handleNewAdalaber = (event) => {
+    setNewAdalaber({ ...newAdalaber, [event.target.id]: event.target.value });
+  };
+  const handleClick = (ev) => {
+    ev.preventDefault();
+    setData([...data, newAdalaber]);
+    setNewAdalaber({
+      name: '',
+      counselor: '',
+      speciality: '',
+    });
+  };
   //Render
   const renderData = data.map((eachAdalaber) => {
     return (
@@ -21,7 +40,7 @@ function App() {
   return (
     <div>
       <h1>Adalabers</h1>
-      <form action="">
+      {/* <form action="">
         <label htmlFor="name">Nombre</label>
         <input type="text" id="name" name="name" />
         <label htmlFor="counselor">Escoge una tutora</label>
@@ -33,7 +52,7 @@ function App() {
           <option value="dayana">Dayana</option>
           <option value="ivan">Iván</option>
         </select>
-      </form>
+      </form> */}
 
       <table className="table">
         <thead>
@@ -46,14 +65,36 @@ function App() {
         <tbody>{renderData}</tbody>
       </table>
       <h2>Añadir una Adalaber</h2>
-      <form action="">
+      <form action="" onSubmit={handleSubmit}>
         <label htmlFor="name">Nombre:</label>
-        <input type="text" id="name" name="name" />
+        <input
+          type="text"
+          id="name"
+          name="name"
+          onInput={handleNewAdalaber}
+          value={newAdalaber.name}
+        />
         <label htmlFor="counselor">Tutora:</label>
-        <input type="text" id="counselor" name="counselor" />
+        <input
+          type="text"
+          id="counselor"
+          name="counselor"
+          onInput={handleNewAdalaber}
+          value={newAdalaber.counselor}
+        />
         <label htmlFor="speciality">Especialidad:</label>
-        <input type="text" id="speciality" name="speciality" />
-        <input type="submit" value="Añadir una nueva adalaber" />
+        <input
+          type="text"
+          id="speciality"
+          name="speciality"
+          onInput={handleNewAdalaber}
+          value={newAdalaber.speciality}
+        />
+        <input
+          type="submit"
+          value="Añadir una nueva adalaber"
+          onClick={handleClick}
+        />
       </form>
     </div>
   );
