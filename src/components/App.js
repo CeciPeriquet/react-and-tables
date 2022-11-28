@@ -11,7 +11,7 @@ function App() {
     speciality: '',
   });
   const [search, setSearch] = useState('');
-  const [select, setSelect] = useState('choose');
+  const [select, setSelect] = useState('');
   //Otro reto, si pongo por defecto la opción choose, no se me pinta el listado completo porque me lo filtra
 
   //Events
@@ -34,11 +34,8 @@ function App() {
     setSearch(ev.target.value);
   };
   const handleSelect = (ev) => {
-    if (ev.target.value === 'choose') {
-      setSelect('');
-    } else {
-      setSelect(ev.target.value);
-    }
+    setSelect(ev.target.value);
+
     //Aquí tenemos un "reto"", en el listado del json a veces pone Iván y a veces Ivan...
   };
   //Render
@@ -70,12 +67,12 @@ function App() {
           onChange={handleSelect}
           value={select}
         >
-          <option value="choose" disabled>
+          <option value="" disabled>
             Escoge una opción
           </option>
           <option value="yanelis">Yanelis</option>
           <option value="dayana">Dayana</option>
-          <option value="ivan">Iván</option>
+          <option value="iván">Iván</option>
         </select>
       </form>
 
