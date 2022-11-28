@@ -3,6 +3,21 @@ import adalabers from '../data/adalabers.json';
 import '../styles/App.css';
 
 function App() {
+  //State
+  const [data, setData] = useState(adalabers.results);
+
+  //Events
+
+  //Render
+  const renderData = data.map((eachAdalaber) => {
+    return (
+      <tr key={eachAdalaber.id}>
+        <td>{eachAdalaber.name}</td>
+        <td>{eachAdalaber.counselor}</td>
+        <td>{eachAdalaber.speciality}</td>
+      </tr>
+    );
+  });
   return (
     <div>
       <h1>Adalabers</h1>
@@ -28,25 +43,7 @@ function App() {
             <th className="table-header">Especialidad</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>MariCarmen</td>
-            <td>Yanelis</td>
-            <td>Python</td>
-          </tr>
-
-          <tr>
-            <td>Amparo</td>
-            <td>Dayana</td>
-            <td>IA</td>
-          </tr>
-
-          <tr>
-            <td>Escandia</td>
-            <td>Iván</td>
-            <td>3D graphics</td>
-          </tr>
-        </tbody>
+        <tbody>{renderData}</tbody>
       </table>
       <h2>Añadir una Adalaber</h2>
       <form action="">
