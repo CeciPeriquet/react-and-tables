@@ -1,10 +1,11 @@
-import { useState } from 'react';
-import adalabers from '../data/adalabers.json';
+import { useState, useEffect } from 'react';
+/* import adalabers from '../data/adalabers.json'; */
+import fetchAdalabers from '../services/api';
 import '../styles/App.css';
 
 function App() {
   //State
-  const [data, setData] = useState(adalabers.results);
+  const [data, setData] = useState([]);
   const [newAdalaber, setNewAdalaber] = useState({
     name: '',
     counselor: '',
@@ -12,7 +13,13 @@ function App() {
   });
   const [search, setSearch] = useState('');
   const [select, setSelect] = useState('');
-  //Otro reto, si pongo por defecto la opción choose, no se me pinta el listado completo porque me lo filtra
+
+  //Effect
+  useEffect(() => {
+    fetchAdalabers().then((data) => {
+      setData(data.results);
+    });
+  }, []);
 
   //Events
   const handleSubmit = (event) => {
@@ -35,8 +42,6 @@ function App() {
   };
   const handleSelect = (ev) => {
     setSelect(ev.target.value);
-
-    //Aquí tenemos un "reto"", en el listado del json a veces pone Iván y a veces Ivan...
   };
   //Render
   const renderData = data
