@@ -31,3 +31,35 @@
   );
   background: -moz-linear-gradient(top, #ededed, #ebebeb);
 }
+
+.forms {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 20px;
+}
+.formfield {
+  all: unset;
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+}
+.formfield2 {
+  all: unset;
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+}
+.tablecontainer {
+  display: flex;
+  justify-content: center;
+}
+.addbutton {
+  all: unset;
+  padding: 10px;
+  cursor: pointer;
+  background-color: rgb(40, 232, 200);
+  color: white;
+  border-radius: 10px;
+  width: 200px;
+}

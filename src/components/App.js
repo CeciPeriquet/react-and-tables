@@ -62,64 +62,77 @@ function App() {
   return (
     <div>
       <h1>Adalabers</h1>
-      <form action="" onSubmit={handleSubmit}>
-        <label htmlFor="name">Nombre</label>
-        <input type="text" id="name" name="name" onInput={handleSearch} />
-        <label htmlFor="counselor">Escoge una tutora</label>
-        <select
-          name="counselor"
-          id="counselor"
-          onChange={handleSelect}
-          value={select}
-        >
-          <option value="" disabled>
-            Escoge una opción
-          </option>
-          <option value="yanelis">Yanelis</option>
-          <option value="dayana">Dayana</option>
-          <option value="iván">Iván</option>
-        </select>
+      <form action="" className="forms" onSubmit={handleSubmit}>
+        <fieldset className="formfield">
+          <label htmlFor="name">Nombre</label>
+          <input type="text" id="name" name="name" onInput={handleSearch} />
+        </fieldset>
+        <fieldset className="formfield">
+          <label htmlFor="counselor">Escoge una tutora</label>
+          <select
+            name="counselor"
+            id="counselor"
+            onChange={handleSelect}
+            value={select}
+          >
+            <option value="" disabled>
+              Escoge una opción
+            </option>
+            <option value="yanelis">Yanelis</option>
+            <option value="dayana">Dayana</option>
+            <option value="iván">Iván</option>
+          </select>
+        </fieldset>
       </form>
 
-      <table className="table">
-        <thead>
-          <tr>
-            <th className="table-header">Nombre</th>
-            <th className="table-header">Tutora</th>
-            <th className="table-header">Especialidad</th>
-          </tr>
-        </thead>
-        <tbody>{renderData}</tbody>
-      </table>
+      <div className="tablecontainer">
+        <table className="table">
+          <thead>
+            <tr>
+              <th className="table-header">Nombre</th>
+              <th className="table-header">Tutora</th>
+              <th className="table-header">Especialidad</th>
+            </tr>
+          </thead>
+          <tbody>{renderData}</tbody>
+        </table>
+      </div>
       <h2>Añadir una Adalaber</h2>
-      <form action="" onSubmit={handleSubmit}>
-        <label htmlFor="name">Nombre:</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          onInput={handleNewAdalaber}
-          value={newAdalaber.name}
-        />
-        <label htmlFor="counselor">Tutora:</label>
-        <input
-          type="text"
-          id="counselor"
-          name="counselor"
-          onInput={handleNewAdalaber}
-          value={newAdalaber.counselor}
-        />
-        <label htmlFor="speciality">Especialidad:</label>
-        <input
-          type="text"
-          id="speciality"
-          name="speciality"
-          onInput={handleNewAdalaber}
-          value={newAdalaber.speciality}
-        />
+      <form action="" className="forms" onSubmit={handleSubmit}>
+        <fieldset className="formfield2">
+          <label htmlFor="name">Nombre:</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            onInput={handleNewAdalaber}
+            value={newAdalaber.name}
+          />
+        </fieldset>
+        <fieldset className="formfield2">
+          <label htmlFor="counselor">Tutora:</label>
+          <input
+            type="text"
+            id="counselor"
+            name="counselor"
+            onInput={handleNewAdalaber}
+            value={newAdalaber.counselor}
+          />
+        </fieldset>
+        <fieldset className="formfield2">
+          <label htmlFor="speciality">Especialidad:</label>
+          <input
+            type="text"
+            id="speciality"
+            name="speciality"
+            onInput={handleNewAdalaber}
+            value={newAdalaber.speciality}
+          />
+        </fieldset>
         <input
           type="submit"
           value="Añadir una nueva adalaber"
+          className="addbutton"
           onClick={handleClick}
         />
       </form>
