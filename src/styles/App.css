@@ -1,7 +1,10 @@
+* {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
 .table {
-  font-family: Arial, Helvetica, sans-serif;
   color: #666;
-  font-size: 12px;
+  /* font-size: 16px; */
   text-shadow: 1px 1px 0px #fff;
   background: #eaebec;
   margin: 20px;
@@ -15,6 +18,16 @@
   -webkit-box-shadow: 0 1px 2px #d1d1d1;
   box-shadow: 0 1px 2px #d1d1d1;
 }
+.table-cell {
+  padding: 18px;
+  border-top: 1px solid #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+  border-left: 1px solid #e0e0e0;
+
+  background: #fafafa;
+
+  background: -moz-linear-gradient(top, #fbfbfb, #fafafa);
+}
 
 .table-header {
   padding: 21px 25px 22px 25px;
@@ -22,13 +35,7 @@
   border-bottom: 1px solid #e0e0e0;
 
   background: #ededed;
-  background: -webkit-gradient(
-    linear,
-    left top,
-    left bottom,
-    from(#ededed),
-    to(#ebebeb)
-  );
+
   background: -moz-linear-gradient(top, #ededed, #ebebeb);
 }
 
@@ -37,6 +44,7 @@
   flex-direction: column;
   justify-content: flex-end;
   gap: 20px;
+  margin-left: 30px;
 }
 .formfield {
   all: unset;
@@ -49,6 +57,7 @@
   display: flex;
   justify-content: flex-start;
   gap: 20px;
+  width: 400px;
 }
 .tablecontainer {
   display: flex;
@@ -58,6 +67,7 @@
   all: unset;
   padding: 10px;
   cursor: pointer;
+  text-align: center;
   background-color: rgb(40, 232, 200);
   color: white;
   border-radius: 10px;

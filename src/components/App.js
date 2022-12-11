@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react';
-/* import adalabers from '../data/adalabers.json'; */
+
 import fetchAdalabers from '../services/api';
 import '../styles/App.css';
 
 function App() {
-  //State
   const [data, setData] = useState([]);
   const [newAdalaber, setNewAdalaber] = useState({
     name: '',
@@ -14,14 +13,12 @@ function App() {
   const [search, setSearch] = useState('');
   const [select, setSelect] = useState('');
 
-  //Effect
   useEffect(() => {
     fetchAdalabers().then((data) => {
       setData(data.results);
     });
   }, []);
 
-  //Events
   const handleSubmit = (event) => {
     event.preventDefault();
   };
@@ -43,7 +40,7 @@ function App() {
   const handleSelect = (ev) => {
     setSelect(ev.target.value);
   };
-  //Render
+
   const renderData = data
     .filter((adalaber) =>
       adalaber.name.toLowerCase().includes(search.toLowerCase())
@@ -53,9 +50,9 @@ function App() {
     .map((eachAdalaber) => {
       return (
         <tr key={eachAdalaber.id}>
-          <td>{eachAdalaber.name}</td>
-          <td>{eachAdalaber.counselor}</td>
-          <td>{eachAdalaber.speciality}</td>
+          <td className="table-cell">{eachAdalaber.name}</td>
+          <td className="table-cell">{eachAdalaber.counselor}</td>
+          <td className="table-cell">{eachAdalaber.speciality}</td>
         </tr>
       );
     });
@@ -97,8 +94,9 @@ function App() {
           <tbody>{renderData}</tbody>
         </table>
       </div>
-      <h2>Añadir una Adalaber</h2>
+
       <form action="" className="forms" onSubmit={handleSubmit}>
+        <h2>Añadir una Adalaber</h2>
         <fieldset className="formfield2">
           <label htmlFor="name">Nombre:</label>
           <input
